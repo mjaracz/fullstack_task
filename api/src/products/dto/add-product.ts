@@ -1,5 +1,5 @@
-import {ProductsCurrency} from '../interfaces/products-currency';
 import {ProductsTypeEnum} from '../interfaces/products-type.enum';
+import {CurrencyEnum} from '../interfaces/currency.enum';
 
 export class AddProductDto {
   readonly productsId: number;
@@ -7,6 +7,6 @@ export class AddProductDto {
   readonly price: number;
   readonly quantity: number;
   readonly description: string;
-  readonly currency: string;
+  readonly currency: CurrencyEnum;
   readonly type: ProductsTypeEnum;
 }

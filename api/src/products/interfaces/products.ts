@@ -1,5 +1,5 @@
-import {CurrencyEnum} from '../../currency/interafaces/currency.enum';
 import {ProductsTypeEnum} from './products-type.enum';
+import {ProductsCurrency} from "./products-currency";
 
 export interface Products {
   productsId: number;
@@ -7,6 +7,6 @@ export interface Products {
   price: number;
   quantity: number;
   description: string;
-  currency: CurrencyEnum;
+  currency: ProductsCurrency;
   type: ProductsTypeEnum;
 }
