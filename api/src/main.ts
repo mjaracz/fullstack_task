@@ -9,7 +9,7 @@ async function bootstrap() {
     fastifyAdapterRegister,
     { cors: true }
   );
-  await app.listen(3000);
+  await app.listen(8080);
 }
 
 bootstrap();

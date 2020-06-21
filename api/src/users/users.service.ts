@@ -5,6 +5,7 @@ import {Users} from './interfaces/users';
 import {CreateUserDto} from './dto/create-user';
 import * as bc from 'bcrypt';
 import * as dotenv from 'dotenv';
+import {UpdateUserDto} from "./dto/update--user";
 
 @Injectable()
 export class UsersService {
@@ -17,8 +18,8 @@ export class UsersService {
     this.saltRound = parseInt(process.env.SALT_ROUND);
   }
 
-  async findAll() {
-    return this.usersModel.find().exec();
+  async findByUsername(name: string): Promise<Users> {
+    return this.usersModel.findOne({username: name}).exec();
   }
 
   async create(createUserDto: CreateUserDto) {
@@ -39,11 +40,16 @@ export class UsersService {
         message: 'this username is occupied'
       }
     }
-
   }
-
-  async findByUsername(name: string): Promise<Users> {
-    return this.usersModel.findOne({username: name}).exec();
+  async update(updateUserDto: UpdateUserDto) {
+    const user = await this.findByUsername(updateUserDto.username);
+    if (user) {
+      console.log(user)
+      console.log('send email')
+    }
+    else {
+      console.log('res status code 401, user not found')
+    }
   }
 
   async deleteByIdOrName(id?: number, username?: string) {

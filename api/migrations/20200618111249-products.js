@@ -1,8 +1,9 @@
 module.exports = {
   async up(db) {
-    db.collection('Products').insertMany([
+    await db.collection('Products').insertMany([
       {
-        productId: 1,
+        productId: 0,
+        userId: 0,
         name: "sofa",
         price: 1200,
         quantity: 200,
@@ -15,7 +16,8 @@ module.exports = {
         type: "furniture"
       },
       {
-        productId: 2,
+        productId: 1,
+        userId: 0,
         name: "dresser",
         price: 800,
         quantity: 20,
@@ -27,7 +29,8 @@ module.exports = {
         type: "furniture"
       },
       {
-        productId: 3,
+        productId: 2,
+        userId: 0,
         name: "chair",
         price: 350,
         quantity: 20,
@@ -40,7 +43,8 @@ module.exports = {
         type: "furniture"
       },
       {
-        productId: 4,
+        productId: 3,
+        userId: 0,
         name: "pillow",
         price: 30,
         quantity: 300,
@@ -52,7 +56,8 @@ module.exports = {
         type: "additional"
       },
       {
-        productId: 5,
+        productId: 4,
+        userId: 1,
         name: "sofa red",
         price: 1200,
         quantity: 200,
@@ -65,7 +70,8 @@ module.exports = {
         type: "furniture"
       },
       {
-        productId: 6,
+        productId: 5,
+        userId: 1,
         name: "dresser yellow",
         price: 800,
         quantity: 20,
@@ -77,7 +83,8 @@ module.exports = {
         type: "furniture"
       },
       {
-        productId: 7,
+        productId: 6,
+        userId: 1,
         name: "old wood chair",
         price: 350,
         quantity: 20,
@@ -90,7 +97,8 @@ module.exports = {
         type: "furniture"
       },
       {
-        productId: 8,
+        productId: 7,
+        userId: 1,
         name: "sofa pillow",
         price: 30,
         quantity: 300,
@@ -102,7 +110,8 @@ module.exports = {
         type: "additional"
       },
       {
-        productId: 9,
+        productId: 8,
+        userId: 2,
         name: "lamps blue",
         price: 20,
         quantity: 250,
@@ -114,7 +123,8 @@ module.exports = {
         type: "lamps"
       },
       {
-        productId: 10,
+        productId: 9,
+        userId: 2,
         name: "lamps yellow",
         price: 25,
         quantity: 250,
@@ -126,7 +136,8 @@ module.exports = {
         type: "lamps"
       },
       {
-        productId: 11,
+        productId: 10,
+        userId: 2,
         name: "lamps red",
         price: 30,
         quantity: 250,
@@ -138,7 +149,8 @@ module.exports = {
         type: "lamps"
       },
       {
-        productId: 12,
+        productId: 11,
+        userId: 2,
         name: "lamps green",
         price: 15,
         quantity: 250,
@@ -152,6 +164,6 @@ module.exports = {
     ])
   },
   async down(db) {
-    db.collection('Products').remove({})
+    await db.collection('Products').remove({})
   }
 };

@@ -3,6 +3,7 @@ import {CurrencySchema} from './products-currency';
 
 export const ProductsSchema = mongoose.Schema({
   productId: Number,
+  userId: Number,
   name: String,
   price: Number,
   quantity: Number,

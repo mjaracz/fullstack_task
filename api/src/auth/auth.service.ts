@@ -11,12 +11,12 @@ export class AuthService {
     private jwtService: JwtService
   ) {}
 
-  async validateUser(username: string, pass: string): Promise<any> | null {
+  async validateUser(username: string, pass: string): Promise<Users> | null {
     const user = await this.usersService.findByUsername(username);
-    const passIsMatch = bc.compareSync(pass, user.password)
-    if (user && passIsMatch) {
-      return user
-    }
+    if (!user) return null
+
+    const passIsMatch = bc.compareSync(pass, user.password);
+    if (passIsMatch) return user
     return null;
   }
 
