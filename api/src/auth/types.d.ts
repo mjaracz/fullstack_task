@@ -1,1 +1,1 @@
-export type localStrategyValidate = { userId: number, username: string }
+export type localStrategyValidate = { userId: number; username: string }

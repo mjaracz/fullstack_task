@@ -1,37 +1,37 @@
-import {ReducerTokenAction} from '../types';
+import { ReducerTokenAction } from '../types'
 
 const initialState = {
   loading: false,
-  jwtToken: '',
-  error: ''
+  jwtToken: undefined,
+  error: '',
 }
 export const signInReducer = (state = initialState, action: ReducerTokenAction) => {
-  switch(action.type) {
-    case 'GET_SIGN_IN': {
+  switch (action.type) {
+    case 'POST_SIGN_IN': {
       return {
         ...state,
-        loading: true
+        loading: true,
       }
     }
     case 'FETCH_SIGN_IN': {
       return {
         ...state,
         loading: false,
-        jwtToken: action.payload
+        jwtToken: action.payload,
       }
     }
     case 'ERROR_SIGN_IN': {
       return {
         ...state,
         loading: false,
-        error: action.payload
+        error: action.payload,
       }
     }
     case 'CLEAN_SIGN_IN': {
       return {
         loading: false,
         jwtToken: '',
-        error: ''
+        error: '',
       }
     }
     default: {

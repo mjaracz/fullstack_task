@@ -1,7 +1,6 @@
-import {getProfile} from '../../../profile/redux/actions/profile';
-import {getSignIn} from './token';
+import { ReqBody } from '../types'
 
-export {
-  getProfile,
-  getSignIn,
-}
+export const postSignIn = (body: ReqBody) => ({
+  type: 'POST_SIGN_IN',
+  payload: body,
+})

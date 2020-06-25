@@ -1,8 +1,8 @@
 export const getProfile = (token: string) => ({
   type: 'GET_USER_PROFILE',
-  token: token
+  token,
 })
 
 export const clearProfile = () => ({
-  type: 'CLEAR_USER_PROFILE'
+  type: 'CLEAR_USER_PROFILE',
 })

@@ -1,18 +1,18 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { Currency } from '../providers/currency';
+import { Test, TestingModule } from '@nestjs/testing'
+import { Currency } from '../providers/currency'
 
 describe('Currency', () => {
-  let provider: Currency;
+  let provider: Currency
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [Currency],
-    }).compile();
+    }).compile()
 
-    provider = module.get<Currency>(Currency);
-  });
+    provider = module.get<Currency>(Currency)
+  })
 
   it('should be defined', () => {
-    expect(provider).toBeDefined();
-  });
-});
+    expect(provider).toBeDefined()
+  })
+})

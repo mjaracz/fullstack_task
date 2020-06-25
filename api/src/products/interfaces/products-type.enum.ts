@@ -1,5 +1,5 @@
 export enum ProductsTypeEnum {
-  furniture= 'furniture',
-  additional= 'additional',
-  lamps= 'lamps',
+  furniture = 'furniture',
+  additional = 'additional',
+  lamps = 'lamps',
 }

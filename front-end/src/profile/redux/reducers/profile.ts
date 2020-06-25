@@ -1,41 +1,41 @@
-import {ReducerProfileAction, UserProfileState} from '../types';
+import { ReducerProfileAction, UserProfileState } from '../types'
 
 const initialState = {
   loading: false,
   profile: {
     userId: undefined,
-    username: ''
+    username: '',
   },
-  error: ''
+  error: '',
 }
 export const userProfileReducer = (state: UserProfileState = initialState, action: ReducerProfileAction) => {
   switch (action.type) {
     case 'GET_USER_PROFILE': {
       return {
         ...state,
-        loading: true
+        loading: true,
       }
     }
     case 'FETCH_PROFILE': {
       return {
         ...state,
         loading: false,
-        profile: action.payload
+        profile: action.payload,
       }
     }
     case 'CLEAR_PROFILE': {
       return {
         ...state,
         loading: false,
-        profile: {userId: undefined, username: ''},
-        error: ''
+        profile: { userId: undefined, username: '' },
+        error: '',
       }
     }
     case 'PROFILE_ERROR': {
       return {
         ...state,
         loading: false,
-        error: action.payload
+        error: action.payload,
       }
     }
     default: {

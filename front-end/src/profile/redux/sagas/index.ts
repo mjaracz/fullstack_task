@@ -1,5 +1,3 @@
-import {userProfileWatcher} from './profile';
+import { userProfileWatcher } from './profile'
 
-export {
-  userProfileWatcher
-}
+export { userProfileWatcher }

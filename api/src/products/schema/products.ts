@@ -1,5 +1,5 @@
-import * as mongoose from 'mongoose';
-import {CurrencySchema} from './products-currency';
+import * as mongoose from 'mongoose'
+import { CurrencySchema } from './products-currency'
 
 export const ProductsSchema = mongoose.Schema({
   productId: Number,

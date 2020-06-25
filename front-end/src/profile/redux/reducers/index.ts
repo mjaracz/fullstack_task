@@ -1,5 +1,3 @@
-import {userProfileReducer} from './profile';
+import { userProfileReducer } from './profile'
 
-export {
-  userProfileReducer
-}
+export { userProfileReducer }

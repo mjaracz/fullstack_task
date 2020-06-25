@@ -1,8 +1,8 @@
-import {Body, Controller, Delete, Post, Put, Query, UseGuards} from '@nestjs/common';
-import {UsersService} from './users.service';
-import {CreateUserDto} from './dto/create-user';
-import {JwtGuard} from '../auth/quards/jwt.guard';
-import {UpdateUserDto} from "./dto/update--user";
+import { Body, Controller, Delete, Get, Post, Put, Query, UseGuards } from '@nestjs/common'
+import { UsersService } from './users.service'
+import { CreateUserDto } from './dto/create-user'
+import { JwtGuard } from '../auth/quards/jwt.guard'
+import { UpdatePassDto } from './dto/update--pass'
 
 @Controller('users')
 export class UsersController {
@@ -10,18 +10,23 @@ export class UsersController {
 
   @Post()
   async createUser(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+    return this.usersService.create(createUserDto)
+  }
+
+  @Get('remember-password')
+  async findUserAndSendMail(@Query('username') username: string) {
+    return this.usersService.findUserAndSendMail(username)
   }
 
   @UseGuards(JwtGuard)
-  @Put()
-  async updateUser(@Body() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(updateUserDto)
+  @Put('change-pass')
+  async changePassword(@Body() updatePassDto: UpdatePassDto) {
+    return this.usersService.changePassword(updatePassDto)
   }
 
   @UseGuards(JwtGuard)
   @Delete()
   async removeUserByIdOrName(@Query('id') id: number, @Query('username') name: string) {
-    return this.usersService.deleteByIdOrName(id, name);
+    return this.usersService.deleteByIdOrName(id, name)
   }
 }

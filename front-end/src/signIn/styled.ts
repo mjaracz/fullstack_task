@@ -1,7 +1,7 @@
-import {makeStyles} from "@material-ui/styles";
+import { makeStyles } from '@material-ui/styles'
 
 export const useStyle = makeStyles({
-  signInStyled: {
+  root: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -9,7 +9,7 @@ export const useStyle = makeStyles({
     width: 350,
     height: 400,
     backgroundColor: '#fff',
-    borderRadius: 15
+    borderRadius: 15,
   },
   rememberPassLink: {
     display: 'block',
@@ -20,15 +20,7 @@ export const useStyle = makeStyles({
     marginTop: 15,
     transition: '0.4s',
     '&:hover ': {
-      color: '#b000ff'
-    }
-  },
-  signInButton: {
-    marginTop: 30,
-    '&:hover ': {
-      transition: '.7s',
-      backgroundColor: '#2962ff',
-      color: '#ffffff'
-    }
+      color: '#b000ff',
+    },
   },
 })

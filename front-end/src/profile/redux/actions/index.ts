@@ -1,6 +1,3 @@
-import {getProfile, clearProfile} from './profile';
+import { getProfile, clearProfile } from './profile'
 
-export {
-  getProfile,
-  clearProfile
-}
+export { getProfile, clearProfile }

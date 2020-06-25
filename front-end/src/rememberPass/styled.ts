@@ -1,7 +1,7 @@
-import {makeStyles} from "@material-ui/styles";
+import { makeStyles } from '@material-ui/styles'
 
 export const useStyle = makeStyles({
-  rememberPass: {
+  root: {
     margin: '40px auto',
     display: 'flex',
     flexDirection: 'column',
@@ -10,17 +10,27 @@ export const useStyle = makeStyles({
     width: 350,
     height: 400,
     backgroundColor: '#fff',
-    borderRadius: 15
+    borderRadius: 15,
+  },
+  rootRememberInfo: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 400,
   },
   rememberText: {
-    color: '#3f51b5'
+    color: '#050f4a',
+    width: 200,
+    letterSpacing: 1,
   },
-  rememberButton: {
-    marginTop: 30,
-    '&:hover': {
-      transition: '.7s',
-      backgroundColor: '#2962ff',
-      color: '#ffffff'
-    }
-  }
+  rememberInfoText: {
+    color: '#fff',
+    width: 380,
+    letterSpacing: 1,
+    fontSize: 23,
+  },
+  textDistinction: {
+    color: '#bc36ff',
+  },
 })

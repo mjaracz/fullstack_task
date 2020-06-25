@@ -1,45 +1,33 @@
-import React, {FC, Fragment} from 'react';
-import {useSignIn} from './hooks/useSignIn';
-import {Button, CircularProgress} from '@material-ui/core';
-import {useStyle} from './styled';
-import {EmailField} from '../textFields/emailField';
-import {PasswordField} from '../textFields/passwordField';
-import {Link, Redirect} from 'react-router-dom';
+import React, { FC, Fragment } from 'react'
+import { Link, Redirect } from 'react-router-dom'
+import { CircularProgress } from '@material-ui/core'
+import { useSignIn } from './hooks/useSignIn'
+import { useStyle } from './styled'
+import { EmailField, PasswordField } from '../textFields'
+
+import { ButtonForm } from '../buttons'
 
 export const SignIn: FC = () => {
-  const {
-    savePassword,
-    saveEmail,
-    sendSignInReq,
-    passwordError,
-    emailError,
-    error,
-    loading,
-    jwtToken
-  } = useSignIn();
-  const {signInStyled, signInButton, rememberPassLink} = useStyle();
+  const { savePassword, saveEmail, sendSignInReq, passwordError, emailError, loading, jwtToken } = useSignIn()
+  const { root, rememberPassLink } = useStyle()
 
-  if (error === 'Unauthorized') {
-    return <Redirect to='unauthorized' />
-  }
   if (jwtToken) {
-    return <Redirect to='profile' />
+    return <Redirect to="profile" />
   }
   return (
-    <div className={signInStyled}>
-      {(loading)
-        ? <CircularProgress color='primary' size={114}/>
-        : (
-          <Fragment>
-            <EmailField saveEmail={saveEmail} validation={emailError}/>
-            <PasswordField savePassword={savePassword} validation={passwordError}/>
-            <Link className={rememberPassLink} to='/remember'>I don't remember password</Link>
-            <Button className={signInButton} variant='outlined' color='primary' onClick={sendSignInReq}>
-              Sign In
-            </Button>
-          </Fragment>
-        )
-      }
+    <div className={root}>
+      {loading ? (
+        <CircularProgress color="primary" size={114} />
+      ) : (
+        <>
+          <EmailField saveEmail={saveEmail} validation={emailError} label="email / username" />
+          <PasswordField savePassword={savePassword} validation={passwordError} label="password" />
+          <Link className={rememberPassLink} to="/remember-pass">
+            I don't remember password
+          </Link>
+          <ButtonForm label="sign in" sendFormData={sendSignInReq} />
+        </>
+      )}
     </div>
   )
 }

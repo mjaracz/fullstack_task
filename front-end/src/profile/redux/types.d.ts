@@ -1,22 +1,22 @@
 export interface UserProfileState {
-  loading: boolean;
-  profile: profile;
-  error: string;
+  loading: boolean
+  profile: profile
+  error: string
 }
 
 export type profile = {
-  userId: number;
-  username: string;
+  userId: number
+  username: string
 }
 
 export interface SagaProfileAction {
-  type: string;
-  token: string;
+  type: string
+  token: string
 }
 
 export interface ReducerProfileAction {
-  type: string;
-  payload: reducerProfilePayload;
+  type: string
+  payload: reducerProfilePayload
 }
 
-export type reducerProfilePayload = boolean | string | profile;
+export type reducerProfilePayload = boolean | string | profile
